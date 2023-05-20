@@ -1,23 +1,80 @@
 {
-    "swagger": "2.0",
-    "info": {
-      "version": "1.0.0", 
-      "title": "Backend with Nodejs Clean architecture",
-      "description": "Project Application API with Mongodb",
-      "license": {
-        "name": "MIT",
-        "url": "https://opensource.org/licenses/MIT"
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Backend with Nodejs Clean architecture",
+    "description": "Project Application API with Mongodb",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Authentification",
+      "description": "API for user in the system"
+    }
+  ],
+  "schemes": ["http"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+    "/api/login_check": {
+      "post": {
+        "tags": ["Authentification"],
+        "summary": "Post ",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Login_check"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Login_check": {
+      "required": ["name", "_id", "companies"],
+      "properties": {
+        "_id": {
+          "type": "integer",
+          "uniqueItems": true
+        },
+        "isPublic": {
+          "type": "boolean"
+        },
+        "name": {
+          "type": "string"
+        },
+        "books": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "amount": {
+                "type": "number"
+              }
+            }
+          }
+        },
+        "companies": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
       }
     },
-    "host": "localhost:3000",
-    "basePath": "/",
-    "tags": [
-      {
-        "name": "Users",
-        "description": "API for user in the system"
-      }
-    ],
-    "schemes": ["http"],
-    "consumes": ["application/json"],
-    "produces": ["application/json"]
+    "Users": {
+      "type": "array",
+      "$ref": "#/definitions/User"
+    }
   }
+}
