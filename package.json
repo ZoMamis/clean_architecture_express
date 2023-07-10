@@ -23,7 +23,7 @@
   "scripts": {
     "test": "jest --watchAll --collectCoverage",
     "start": "node --inspect=5858 -r ts-node/register ./src/server.ts",
-    "start:watch": "nodemon ./src/server.ts",
+    "dev": "nodemon ./src/server.ts",
     "build": "tsc"
   }
 }

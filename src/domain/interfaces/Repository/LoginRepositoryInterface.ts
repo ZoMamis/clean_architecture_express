@@ -1,4 +1,4 @@
-import { Login } from "../../Entity/Login";
+import { LoginRequest, LoginResponse } from "../../Entity/Login";
 export interface LoginRepositoryInterface {
-    loginCheck(login: Login): Promise<boolean>;
+    loginCheck(login: LoginRequest): Promise<boolean>;
 }
